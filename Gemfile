@@ -21,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "faker"  # Used to create Fake Data.
   gem "web-console"
 end
 
