@@ -26,11 +26,18 @@ module Api
 			end
 
 			def update
-				#TODO
+				product = Product.find(params[:id])
+				if product.update(product_params)
+					render json: {status: "SUCCESS", message: "Updated Product", data: product}, status: :ok
+					return
+				end
+				render json: {status: "ERROR", message: "Product not Updated", data: product}, status: :unprocessable_entity
 			end
 
-			def delete
-				#TODO
+			def destroy
+				product = Product.find(params[:id])
+				product.destroy
+				render json: {status: "SUCCESS", message: "Deleted Product", data: product}, status: :ok
 			end
 
 			private
